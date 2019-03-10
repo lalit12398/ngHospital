@@ -316,7 +316,12 @@ filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#03ccfd', end
 
 
 .lightbox .lb-image {width:auto !important;}
-
+.error {
+    color: red;
+}
+.success {
+    color: green;
+}
 
 /**************6th Jun 18************/
 

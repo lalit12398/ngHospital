@@ -5,10 +5,6 @@
 			<ng-template carouselSlide><img src="assets/images/banners/b.jpg"></ng-template>  
 			<ng-template carouselSlide><img src="assets/images/banners/b.jpg"></ng-template>  
 		</owl-carousel-o>
-
-
-
-
 	</div>
 	<div class="container">
 		<div class="row">
@@ -24,21 +20,28 @@
 									<div class="row align-items-end">
 										<div class="col-12 col-md-4">
 											<div class="form-group">
-												<select name="speciality" class="form-control" id="speciality" [(ngModel)]="model.spec">
-													<option *ngFor="let spec of speciality">{{spec}}</option>
-												</select>
+												<select name="speciality" class="form-control" id="speciality" [(ngModel)]="model.spec" #spec="ngModel" required>
+                          <option value="">- Select speciality -</option>
+													<option *ngFor="let spec of speciality" value="{{spec}}">{{spec}}</option>
+                        </select>
+                        <p class="error" *ngIf="f.submitted && spec.errors?.required">Please select a speciality.</p>
 											</div>
 										</div>
 										<div class="col-12 col-md-4">
 											<div class="form-group">
-												<select name="doctors" class="form-control" id="doctors" [(ngModel)]="model.doc">
-													<option *ngFor="let doc of doctors">{{doc}}</option>
-												</select>
+												<select name="doctors" class="form-control" id="doctors" [(ngModel)]="model.doc" #doc="ngModel" required>
+                          <option value="">- Select Doctor -</option>
+													<option *ngFor="let doc of doctors" value="{{doc}}">{{doc}}</option>
+                        </select>
+                        <p class="error" *ngIf="f.submitted && doc.errors?.required">
+                          Please select a Doctor.
+                        </p>
 											</div>
 										</div>
 										<div class="col-12 col-md-4">
 											<div class="form-group">
-												<input type="date" class="form-control" name="date" id="date" placeholder="Date / Time" [(ngModel)]="model.date" >
+                        <input type="date" class="form-control" name="date" id="date" placeholder="Date / Time" [(ngModel)]="model.date" #date = "ngModel"  required>
+                        <p class="error" *ngIf="f.submitted && date.errors?.required">Please select an appointment date.</p>
 											</div>
 										</div>
                   <!--                  <div class="col-12 col-md-2">
@@ -48,22 +51,26 @@
                   </div> -->
                   <div class="col-12 col-md-4">
                   	<div class="form-group">
-                  		<input type="text" class="form-control border-top-0 border-right-0 border-left-0" name="name" id="name" placeholder="Name" [(ngModel)]="model.name">
+                      <input type="text" class="form-control border-top-0 border-right-0 border-left-0" name="name" id="name" placeholder="Name" [(ngModel)]="model.name" #name="ngModel" required>
+                      <p class="error" *ngIf="f.submitted && name.errors?.required">Please provide your name.</p>
                   	</div>
                   </div>
                   <div class="col-12 col-md-4">
                   	<div class="form-group">
-                  		<input type="text" class="form-control border-top-0 border-right-0 border-left-0" name="number" id="number" placeholder="Phone" [(ngModel)]="model.phone">
+                      <input type="text" class="form-control border-top-0 border-right-0 border-left-0"  name="number" id="number" placeholder="Phone" [(ngModel)]="model.phone" #phone="ngModel" required>
+                      <p class="error" *ngIf="f.submitted && phone.errors?.required">Please provide your contact number.</p>
                   	</div>
                   </div>
                   <div class="col-12 col-md-4">
                   	<div class="form-group">
-                  		<input type="email" class="form-control border-top-0 border-right-0 border-left-0" name="email" id="email" placeholder="E-mail" [(ngModel)]="model.email">
+                      <input type="email" class="form-control border-top-0 border-right-0 border-left-0" name="email" id="email" placeholder="E-mail" [(ngModel)]="model.email" #email="ngModel" required>
+                      <p class="error" *ngIf="f.submitted && email.errors?.required">Please provide your email address.</p>
                   	</div>
                   </div>
                   <div class="col-12 col-md-12">
                   	<div class="form-group mb-0">
-                  		<textarea name="message" class="form-control mb-0 border-top-0 border-right-0 border-left-0" id="message" cols="30" rows="10" placeholder="Message" tabindex="1" style="overflow: hidden; outline: none;" [(ngModel)]="model.message" ></textarea>
+                      <textarea name="message" class="form-control mb-0 border-top-0 border-right-0 border-left-0" id="message" cols="30" rows="10" placeholder="Message" tabindex="1" style="overflow: hidden; outline: none;" [(ngModel)]="model.message" #message="ngModel" required></textarea>
+                      <p class="error" *ngIf="f.submitted && message.errors?.required">Please provide a brief about your concern.</p>
                   	</div>
                   </div>
                   <div class="col-12 col-md-12 neon-wrap">
@@ -111,22 +118,8 @@
 			personalized and high quality healthcare for our patients across the domains of multi-speciality DayCare,
 			Emergency Medicine & Acute Care By Medical professionals. The inclusion of Complementary & Alternative
 			Medicine in our service segments is our next goal.
-		</p>
-		<div class="about-carousal-wrap">
-			<div class="owl-carousel owl-theme about-carousal">
-				<div class="item"> <img src="assets/images/about-banner/about1.jpg" class="img-responsive" alt="">
-
-				</div>
-				<div class="item"> <img src="assets/images/about-banner/about2.jpg" class="img-responsive" alt="">
-
-				</div>
-				<div class="item"> <img src="assets/images/about-banner/about3.jpg" class="img-responsive" alt="">
-
-				</div>
-				<div class="item"> <img src="assets/images/about-banner/about4.jpg" class="img-responsive" alt="">
-				</div>
-			</div>
-		</div>
+    </p>
+    <app-about-slider></app-about-slider>
 		<div class="col-12 col-md-12 neon-wrap">
 			<div class="form-group">
 				<a class="btn neon-btn" href="<?php echo base_url('about'); ?>">Know More</a>

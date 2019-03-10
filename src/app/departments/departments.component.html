@@ -1,0 +1,22 @@
+<div class="main">
+    <div class="container-fluid">
+      <h1>Departments</h1>
+        <div class="col-md-12">
+          <app-dept-slider></app-dept-slider>
+          <div class="dpt-content">
+              <div class="dpt-cnt-<?php echo $key+1 ?> dpt-cnt-main">
+                <div class="col-md-12">
+                  <div class="col-md-8 dpt-cnt">
+                    <h3></h3>
+                    <p></p>
+                  </div>
+                  <div class="col-md-4 dpt-head">
+                    <img src="<?php echo base_url().'uploads/images/dept-img/'.$value['hod_img']?>">
+                  </div>
+                </div>
+              </div>
+          </div>
+        </div>
+      <!-- <p class="no-data">No data found</p> -->
+    </div>
+  </div>

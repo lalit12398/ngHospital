@@ -9,6 +9,10 @@ import { HeaderComponent } from './header/header.component';
 import { FooterComponent } from './footer/footer.component';
 import { CarouselModule } from 'ngx-owl-carousel-o';
 import { HomeComponent } from './home/home.component';
+import { AboutSlider } from './common_components/aboutSlider/aboutSlider.component';
+import { AboutComponent } from './about/about.component';
+import { DepartmentsComponent } from './departments/departments.component';
+import { DeptSliderComponent } from './departments/dept-slider/dept-slider.component';
 
 
 @NgModule({
@@ -17,6 +21,10 @@ import { HomeComponent } from './home/home.component';
     HeaderComponent,
     FooterComponent,
     HomeComponent,
+    AboutSlider,
+    AboutComponent,
+    DepartmentsComponent,
+    DeptSliderComponent
   ],
   imports: [
     BrowserModule,
